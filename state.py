@@ -2,7 +2,7 @@ from typing import Annotated, TypedDict, Literal
 from langgraph.graph.message import add_messages, AnyMessage
 
 
-class State(TypedDict):
+class AgentGraphState(TypedDict):
     """
     State of the agent.
 
@@ -24,7 +24,11 @@ class State(TypedDict):
         "reference_numbers",
         "glossary_of_terms",
         "other_embodiments",
-    ]
+    ] = "field_of_invention"
+
+
+def get_agent_graph_state(state: AgentGraphState, state_key):
+    return state[state_key]
 
 
 # user_prompt: """
