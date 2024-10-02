@@ -11,7 +11,7 @@ class AgentGraphState(TypedDict):
     current_section: Current section of the patent application being filled out.
     """
 
-    user_prompt: str
+    # user_prompt: str
     messages: Annotated[list[AnyMessage], add_messages]
     current_section: Literal[
         "field_of_invention",
@@ -25,6 +25,7 @@ class AgentGraphState(TypedDict):
         "glossary_of_terms",
         "other_embodiments",
     ] = "field_of_invention"
+    current_section_text: str
 
 
 def get_agent_graph_state(state: AgentGraphState, state_key):
