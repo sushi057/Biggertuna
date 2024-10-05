@@ -43,18 +43,35 @@ for event in graph.stream(
         "current_section": ["title, field of invention and background"],
     },
     config,
+    stream_mode="values",
 ):
-    for value in event.values():
-        print("Assistant:", value["messages"].content, "\n")
-    # event["messages"][-1].pretty_print()
+    # for value in event.values():
+    # print("Assistant:", value["messages"].content, "\n")
+    event["messages"][-1].pretty_print()
 
 state = graph.get_state(config)
 # print(state)
 while True:
-    user_input = input("User: ")
-    graph.update_state(config, {"messages": [("user", user_input)]})
+    # user_input = input("User: ")
 
-    for event in graph.stream(None, config):
-        for value in event.values():
-            print("Assistant:", value["messages"].content, "\n")
-        # event["messages"][-1].pretty_print()
+    # if hasattr(state[0]["messages"][-1], "tool_calls") and state[0]["messages"][-1].tool_calls:
+    #     tool_call_id = graph.get_state(config)[0]["messages"][-1].tool_calls[0][
+    #         "id"
+    #     ]
+    #     tool_message = [
+    #         {"tool_call_id": tool_call_id, "content": user_input, "type": "tool"}
+    #     ]
+    #     graph.update_state(config, {"messages": tool_message})
+
+    graph.update_state(
+        config, {"messages": [("user", "looks good")]}, as_node="feedback_agent"
+    )
+
+    for event in graph.stream(
+        None,
+        config,
+        stream_mode="values",
+    ):
+        # for value in event.values():
+        # print("Assistant:", value["messages"].content, "\n")
+        event["messages"][-1].pretty_print()

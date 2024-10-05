@@ -13,11 +13,20 @@ from agents import (
 )
 
 
-def route_quality_control_agent(state: AgentGraphState):
+def route_feedback_agent(state: AgentGraphState):
     messages = state["messages"]
     if not hasattr(messages[-1], "tool_calls") or not messages[-1].tool_calls:
-        return "quality_control_agent"
+        return "feedback_agent"
     elif messages[-1].tool_calls[0]["name"] == "ToRetrieverAgent":
+        # tool_call_id = messages[-1].tool_calls[0]["id"]
+        # tool_message = [
+        #     {
+        #         "tool_call_id": tool_call_id,
+        #         "content": "reference numbers",
+        #         "type": "tool",
+        #     }
+        # ]
+        # state = {**state, "messages": tool_message}
         return "retriever_agent"
     elif not state["current_section"]:
         return "final_report_agent"
@@ -38,7 +47,7 @@ def create_graph():
         ),
     )
     graph_builder.add_node(
-        "quality_control_agent",
+        "feedback_agent",
         lambda state: QualityControlAgent(
             state,
         ).invoke(),
@@ -50,14 +59,14 @@ def create_graph():
     # graph_builder.add_edge(START, "planner_agent")
     graph_builder.add_edge(START, "retriever_agent")
     graph_builder.add_edge("retriever_agent", "reviewer_agent")
-    graph_builder.add_edge("reviewer_agent", "quality_control_agent")
+    graph_builder.add_edge("reviewer_agent", "feedback_agent")
     graph_builder.add_conditional_edges(
-        "quality_control_agent",
-        route_quality_control_agent,
+        "feedback_agent",
+        route_feedback_agent,
         {
             "retriever_agent": "retriever_agent",
             "final_report_agent": "final_report_agent",
-            "quality_control_agent": "quality_control_agent",
+            "feedback_agent": "feedback_agent",
             # "__end__": "__end__",
         },
     )
@@ -66,6 +75,6 @@ def create_graph():
     memory = MemorySaver()
     graph = graph_builder.compile(
         checkpointer=memory,
-        interrupt_before=["quality_control_agent"],
+        interrupt_before=["feedback_agent"],
     )
     return graph

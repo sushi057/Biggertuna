@@ -42,7 +42,7 @@ reviewer_prompt_template = ChatPromptTemplate.from_messages(
     ]
 )
 
-quality_control_prompt_template = ChatPromptTemplate.from_messages(
+feedback_prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",

@@ -5,13 +5,14 @@ from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.messages import ToolMessage
 
 from state import AgentGraphState, get_agent_graph_state
 from prompts import (
     planner_prompt_template,
     retriever_prompt_template,
     reviewer_prompt_template,
-    quality_control_prompt_template,
+    feedback_prompt_template,
     final_report_prompt_template,
 )
 from rag import get_retriever, get_rules_retriever, format_docs
@@ -40,7 +41,20 @@ class RetrievalAgent(Agent):
 
         # Create a runnable for the retriever agent
         context_docs = format_docs(retriever.invoke(self.state["messages"][-1].content))
+
+        if (
+            hasattr(self.state["messages"][-1], "tool_calls")
+            and self.state["messages"][-1].tool_calls
+        ):
+            tool_call_id = self.state["messages"][-1].tool_calls[0]["id"]
+            tool_message = ToolMessage(
+                tool_call_id=tool_call_id, content="reference numbers"
+            )
+
+            self.state["messages"].append(tool_message)
+
         retriever_runnable = retriever_prompt_template | self.llm
+
         response = retriever_runnable.invoke(
             {
                 # self.state["messages"][-1].content,
@@ -83,8 +97,8 @@ class QualityControlAgent(Agent):
         print("---------Quality Control Agent---------")
 
         llm = self.llm.bind_tools([ToRetrieverAgent, ToFinalReportAgent])
-        quality_control_runnable = quality_control_prompt_template | llm
-        response = quality_control_runnable.invoke(self.state)
+        feedback_runnable = feedback_prompt_template | llm
+        response = feedback_runnable.invoke(self.state)
 
         self.state = {**self.state, "messages": response}
         self.state = {**self.state, "current_section_text": response.content}
