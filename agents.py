@@ -3,6 +3,8 @@ import os
 from langchain_core.runnables import Runnable, RunnableConfig
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 
 from state import AgentGraphState, get_agent_graph_state
 from prompts import (
@@ -12,6 +14,8 @@ from prompts import (
     quality_control_prompt_template,
     final_report_prompt_template,
 )
+from rag import get_retriever, get_rules_retriever, format_docs
+from tools import ToRetrieverAgent, ToFinalReportAgent
 
 
 class Agent:
@@ -30,9 +34,21 @@ class PlannerAgent(Agent):
 
 
 class RetrievalAgent(Agent):
-    def invoke(self):
+    def invoke(self, current_section: str):
+        print("---------Retrieval Agent---------")
+        retriever = get_retriever()
+
+        # Create a runnable for the retriever agent
+        context_docs = format_docs(retriever.invoke(self.state["messages"][-1].content))
         retriever_runnable = retriever_prompt_template | self.llm
-        response = retriever_runnable.invoke(self.state)
+        response = retriever_runnable.invoke(
+            {
+                # self.state["messages"][-1].content,
+                "context": context_docs,
+                "current_section": current_section,
+                "messages": self.state["messages"],
+            }
+        )
 
         self.state = {**self.state, "messages": response}
         self.state = {**self.state, "current_section_text": response.content}
@@ -40,9 +56,22 @@ class RetrievalAgent(Agent):
 
 
 class ReviewerAgent(Agent):
-    def invoke(self):
+    def invoke(self, current_section: str):
+        print("---------Reviewer Agent---------")
+        rules_retriever = get_rules_retriever()
+
+        # Create runnable for the reviewer agent
+        context_docs = format_docs(
+            rules_retriever.invoke(self.state["messages"][-1].content)
+        )
         reviewer_runnable = reviewer_prompt_template | self.llm
-        response = reviewer_runnable.invoke(self.state)
+        response = reviewer_runnable.invoke(
+            {
+                "context": context_docs,
+                "current_section": current_section,
+                "messages": self.state["messages"],
+            }
+        )
 
         self.state = {**self.state, "messages": response}
         self.state = {**self.state, "current_section_text": response.content}
@@ -51,9 +80,19 @@ class ReviewerAgent(Agent):
 
 class QualityControlAgent(Agent):
     def invoke(self):
+        print("---------Quality Control Agent---------")
+
+        llm = self.llm.bind_tools([ToRetrieverAgent, ToFinalReportAgent])
+        quality_control_runnable = quality_control_prompt_template | llm
+        response = quality_control_runnable.invoke(self.state)
+
+        self.state = {**self.state, "messages": response}
+        self.state = {**self.state, "current_section_text": response.content}
         return self.state
 
 
 class FinalReportAgent(Agent):
     def invoke(self):
+        print("---------Final Report Agent---------")
+
         return self.state

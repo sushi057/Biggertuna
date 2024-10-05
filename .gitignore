@@ -3,3 +3,4 @@
 docs/
 .vscode/
 __pycache__/
+data/

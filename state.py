@@ -6,25 +6,13 @@ class AgentGraphState(TypedDict):
     """
     State of the agent.
 
-    user_prompt: User's prompt to the agent.
     messages: List of messages exchanged between the user and the agent.
     current_section: Current section of the patent application being filled out.
     """
 
     # user_prompt: str
     messages: Annotated[list[AnyMessage], add_messages]
-    current_section: Literal[
-        "field_of_invention",
-        "background",
-        "summary",
-        "brief_description",
-        "detailed_description",
-        "claims",
-        "abstract",
-        "reference_numbers",
-        "glossary_of_terms",
-        "other_embodiments",
-    ] = "field_of_invention"
+    current_section: str
     current_section_text: str
 
 

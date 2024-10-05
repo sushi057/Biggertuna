@@ -13,7 +13,12 @@ retriever_prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a retrieval agent for a patent writing company. You are responsible for finding and writing the relevant information for the current_section of the patent.",
+            """
+            You are an assistant for a patent writing company that writes a patent report based on user's requirements and the context provided.
+            Use the following pieces of retrieved documents and write a patent report based on user's requirements only for the given sections of the report: {current_section}
+            
+            Context: {context}
+            """,
         ),
         ("placeholder", "{messages}"),
     ]
@@ -23,7 +28,15 @@ reviewer_prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a reviewer agent for a patent writing company. You are responsible for reviewing the current section of the patent.",
+            """
+            You are a reviewer for a patent writing company that reviews the item provided to you and makes necessary changes.
+            Your responsibility is to review the current section {current_section} of the patent report sent by retriever_agent using the following pieces of information
+            
+            Context: {context}
+
+            Make necessary changes to the report based on the review.
+            Do not generate anything more than the current section.
+            """,
         ),
         ("placeholder", "{messages}"),
     ]
@@ -33,7 +46,12 @@ quality_control_prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "You are a quality control agent for a patent writing company. You are responsible for ensuring the quality of the current section of the patent.",
+            """
+            You are a quality control agent for a patent writing company. 
+            You will listen to user's feedback and make changes to the report section accordingly.
+            If the user is satisfied with the report, you will go to retriever agent to generate the next report section.
+            If all sections of the report are complete, finally go to the final report agent.
+            """,
         ),
         ("placeholder", "{messages}"),
     ]
