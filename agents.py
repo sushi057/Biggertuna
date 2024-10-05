@@ -39,17 +39,20 @@ class RetrievalAgent(Agent):
         print("---------Retrieval Agent---------")
         retriever = get_retriever()
 
-        # Create a runnable for the retriever agent
-        # context_docs = format_docs(retriever.invoke(self.state["messages"][-1].content))
         context_docs = format_docs(retriever.invoke(self.state["current_section"][0]))
+
+        # If the last message was a tool call, add tool message
         if (
             hasattr(self.state["messages"][-1], "tool_calls")
             and self.state["messages"][-1].tool_calls
         ):
+            # Add to final report when new_section is being generated
+            with open("final_report.txt", "a") as f:
+                f.write(self.state["current_section_text"])
+                f.flush()
+
             tool_call_id = self.state["messages"][-1].tool_calls[0]["id"]
-            tool_message = ToolMessage(
-                tool_call_id=tool_call_id, content="reference numbers"
-            )
+            tool_message = ToolMessage(tool_call_id=tool_call_id, content="")
 
             self.state["messages"].append(tool_message)
 
@@ -77,9 +80,7 @@ class ReviewerAgent(Agent):
         print("---------Reviewer Agent---------")
         rules_retriever = get_rules_retriever()
 
-        # Create runnable for the reviewer agent
         context_docs = format_docs(
-            # rules_retriever.invoke(self.state["messages"][-1].content)
             rules_retriever.invoke(self.state["current_section"][0])
         )
         reviewer_runnable = reviewer_prompt_template | self.llm
@@ -96,16 +97,17 @@ class ReviewerAgent(Agent):
         return self.state
 
 
-class QualityControlAgent(Agent):
+class FeedbackAgent(Agent):
     def invoke(self):
-        print("---------Quality Control Agent---------")
+        print("---------Feedback Agent---------")
 
         llm = self.llm.bind_tools([ToRetrieverAgent, ToFinalReportAgent])
         feedback_runnable = feedback_prompt_template | llm
         response = feedback_runnable.invoke(self.state)
 
         self.state = {**self.state, "messages": response}
-        self.state = {**self.state, "current_section_text": response.content}
+        if not hasattr(response, "tool_calls") or not response.tool_calls:
+            self.state = {**self.state, "current_section_text": response.content}
         return self.state
 
 

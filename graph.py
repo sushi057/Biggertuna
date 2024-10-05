@@ -8,7 +8,7 @@ from state import AgentGraphState, get_agent_graph_state
 from agents import (
     RetrievalAgent,
     ReviewerAgent,
-    QualityControlAgent,
+    FeedbackAgent,
     FinalReportAgent,
 )
 
@@ -48,7 +48,7 @@ def create_graph():
     )
     graph_builder.add_node(
         "feedback_agent",
-        lambda state: QualityControlAgent(
+        lambda state: FeedbackAgent(
             state,
         ).invoke(),
     )
