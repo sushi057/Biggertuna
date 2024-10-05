@@ -40,8 +40,8 @@ class RetrievalAgent(Agent):
         retriever = get_retriever()
 
         # Create a runnable for the retriever agent
-        context_docs = format_docs(retriever.invoke(self.state["messages"][-1].content))
-
+        # context_docs = format_docs(retriever.invoke(self.state["messages"][-1].content))
+        context_docs = format_docs(retriever.invoke(self.state["current_section"][0]))
         if (
             hasattr(self.state["messages"][-1], "tool_calls")
             and self.state["messages"][-1].tool_calls
@@ -57,13 +57,16 @@ class RetrievalAgent(Agent):
 
         response = retriever_runnable.invoke(
             {
-                # self.state["messages"][-1].content,
+                # self.state["messages"][-1].content
                 "context": context_docs,
                 "current_section": current_section,
                 "messages": self.state["messages"],
             }
         )
-
+        self.state = {
+            **self.state,
+            "current_section": self.state["current_section"][1:],
+        }
         self.state = {**self.state, "messages": response}
         self.state = {**self.state, "current_section_text": response.content}
         return self.state
@@ -76,7 +79,8 @@ class ReviewerAgent(Agent):
 
         # Create runnable for the reviewer agent
         context_docs = format_docs(
-            rules_retriever.invoke(self.state["messages"][-1].content)
+            # rules_retriever.invoke(self.state["messages"][-1].content)
+            rules_retriever.invoke(self.state["current_section"][0])
         )
         reviewer_runnable = reviewer_prompt_template | self.llm
         response = reviewer_runnable.invoke(

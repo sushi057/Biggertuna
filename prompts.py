@@ -49,7 +49,7 @@ feedback_prompt_template = ChatPromptTemplate.from_messages(
             """
             You are a quality control agent for a patent writing company. 
             You will listen to user's feedback and make changes to the report section accordingly.
-            If the user is satisfied with the report, you will go to retriever agent to generate the next report section.
+            If the user is satisfied with the report, inform the user and go to the retriever agent to generate the next report section.
             If all sections of the report are complete, finally go to the final report agent.
             """,
         ),
