@@ -8,7 +8,7 @@ from langchain_core.output_parsers import StrOutputParser
 
 
 # Final deliverable embedding
-file_path = "./attachments/Ben Oros Reconfigurable Foam Block System PPA.pdf"
+file_path = "./docs/Ben Oros Reconfigurable Foam Block System PPA.pdf"
 loader = PyPDFLoader(file_path=file_path)
 docs = loader.lazy_load()
 
@@ -39,7 +39,7 @@ rag_chain = (
 
 # Rules embedding
 rules_file_path = (
-    "./attachments/You are reviewing a draft Provisional Patent Application Prompt.pdf"
+    "./docs/You are reviewing a draft Provisional Patent Application Prompt.pdf"
 )
 loader = PyPDFLoader(file_path=rules_file_path)
 docs = loader.lazy_load()

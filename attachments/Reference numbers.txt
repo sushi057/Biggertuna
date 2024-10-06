@@ -1,0 +1,91 @@
+Reference Numbering
+
+
+100 Collar Cover
+
+110 Body of cover
+
+111 Added body area for overlap/tuck 
+
+112 Open end top
+
+113 Open end bottom
+
+114 End stitch
+
+116 Open slot for leader exit
+
+120 Metal grommet 
+
+121 Grommet aperture
+
+150 Traditional Prong/spiked collar
+
+152 Prong link
+
+154 Prong end
+
+156 Leader chain
+
+158 Leader loop (attach to leash)
+
+159 Break created by uncoupling links (to insert into cover
+
+
+
+200 Cover with zipper to open/close
+
+210 Body of cover
+
+220 Grommets
+
+216 Slot for leader exit
+
+230 Zipper 
+
+231 Zipper side 1
+
+232 Zipper side 2
+
+240 Hook side velcro
+
+242 Loop side velcro
+
+
+300 Cover with small zipper for leader chain
+
+310 Body of cover
+
+320 Grommets
+
+330 Zipper / slot
+
+340 Hook side velcro
+
+342 Loop side velcro
+
+
+300’ Same but with printed pattern
+
+312 Printed pattern or design
+
+
+400 Cover with full length velcro to open/close
+
+410 Body of cover
+
+420 Grommets
+
+416 Slot for leader exit
+
+440 Hook side velcro for securing ends once in place
+
+442 Loop side velcro for securing ends once in place
+
+446 Loop side full length closure
+
+446 Hook side full length closure
+
+
+450 Dog with collar/cover in place (No spikes can be seen)
+
