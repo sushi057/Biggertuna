@@ -1,13 +1,10 @@
 import os
 
-from langchain_core.runnables import Runnable, RunnableConfig
-from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
+from langchain_anthropic import ChatAnthropic
 from langchain_core.messages import ToolMessage, HumanMessage
 
-from state import AgentGraphState, get_agent_graph_state
+from state import AgentGraphState
 from prompts import (
     planner_prompt_template,
     retriever_prompt_template,
@@ -25,6 +22,7 @@ class Agent:
         self.llm = ChatOpenAI(
             model="gpt-4o-mini", temperature=0.5, api_key=os.getenv("OPENAI_API_KEY")
         )
+        # self.llm = ChatAnthropic(model="claude-3-5-sonnet-20240620", temperature=0.3)
 
 
 class PlannerAgent(Agent):
@@ -98,7 +96,7 @@ class ReviewerAgent(Agent):
         reviewer_runnable = reviewer_prompt_template | self.llm
         response = reviewer_runnable.invoke(
             {
-                "context": context_docs,
+                "instructions": context_docs,
                 "current_section": current_section,
                 "messages": self.state["messages"],
             }

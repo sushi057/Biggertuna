@@ -28,7 +28,7 @@ retriever_prompt_template = ChatPromptTemplate.from_messages(
             Make the main title at least two lines long.
 
             Extra instructions:
-            When generating *reference numbers* and *brief description*, use the given attachments. Do no fabricate any information.
+            When generating *reference numbers* and *brief description*, use the given attachments and do not make them short. Do no fabricate any information.
             """,
         ),
         ("placeholder", "{messages}"),
@@ -40,23 +40,20 @@ reviewer_prompt_template = ChatPromptTemplate.from_messages(
         (
             "system",
             """
-            You are an assistant for a patent writing company that reviews the given section of patent report.
-            Based on the review, make changes to the report.
-            DO NOT WRITE REVIEWS OR COMMENTS.  
-            Your responsibility is to review the current section {current_section} of the patent report sent by retriever_agent using the following pieces of information
-            
-            Instructions: {context}
+            You are an assistant for a patent writing company tasked with reviewing and revising sections of patent reports. 
+            Your role is to revise the provided section sent by retriever agent, based on given instructions for the current section. 
+            Do not provide any explanations or additional text beyond what is requested.
 
-            Make necessary changes to the report based on the review.
-            ONLY GENERATE THE CURRENT SECTION.
-            Do not generate anything more than the current section.
+            Report Section: {current_section}
+            Instructions: {instructions}
+            Only generate the current section based on these instructions. Do not include conclusions, summaries, or explanations outside of the section.
 
             Extra instructions:
-            Keep in mind the current_section is one of the followin:
+            Keep in mind the when {current_section} is one of the following:
             1. The *background* should be fairly long and captivation.
             2. *Claims* should be well structured and should make sense.
             3. *Glossary of terms* should be based on the current report.
-            4. *Reference Numbers* and *Brief description* is given to you by the user. Use them well.
+            4. *Reference Numbers* and *Brief description* is given to you by the user. Do not make them short.
             """,
         ),
         ("placeholder", "{messages}"),
@@ -71,6 +68,7 @@ feedback_prompt_template = ChatPromptTemplate.from_messages(
             You are a quality control agent for a patent writing company. 
             You will listen to user's feedback and make changes to the report section accordingly.
             If the user is satisfied with the report, go to the retriever agent to generate the next report section.
+            If the current_section is empty go to the final report agent.
             If all sections of the report are complete, finally go to the final report agent.
             """,
         ),

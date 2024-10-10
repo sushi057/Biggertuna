@@ -17,6 +17,8 @@ def route_feedback_agent(state: AgentGraphState):
     messages = state["messages"]
     if not hasattr(messages[-1], "tool_calls") or not messages[-1].tool_calls:
         return "feedback_agent"
+    elif not state["current_section"]:
+        return "final_report_agent"
     elif messages[-1].tool_calls[0]["name"] == "ToRetrieverAgent":
         # tool_call_id = messages[-1].tool_calls[0]["id"]
         # tool_message = [
@@ -28,8 +30,6 @@ def route_feedback_agent(state: AgentGraphState):
         # ]
         # state = {**state, "messages": tool_message}
         return "retriever_agent"
-    elif not state["current_section"]:
-        return "final_report_agent"
 
 
 def create_graph():
