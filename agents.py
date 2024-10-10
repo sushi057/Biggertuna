@@ -35,9 +35,19 @@ class PlannerAgent(Agent):
 class RetrievalAgent(Agent):
     def invoke(self, current_section: str):
         print("---------Retrieval Agent---------")
-        retriever = get_retriever()
 
-        context_docs = format_docs(retriever.invoke(self.state["current_section"][0]))
+        # Add current_section_text to final_report.txt
+        if not isinstance(self.state["messages"][-1], HumanMessage):
+            if self.state["messages"][-1].tool_calls:
+                with open("final_report.txt", "a") as f:
+                    f.write(self.state["messages"][-3].content + "\n\n\n")
+                    f.flush()
+
+            if not self.state["current_section"]:
+                return
+
+        retriever = get_retriever()
+        context_docs = format_docs(retriever.invoke(current_section))
 
         # If current section is reference number or brief description
         if self.state["current_section"][0] == "reference_numbers":
@@ -61,6 +71,7 @@ class RetrievalAgent(Agent):
                     content="Use these figure descriptions" + brief_description_content
                 ),
             )
+
         # If the last message was a tool call, add tool message
         if (
             hasattr(self.state["messages"][-1], "tool_calls")
@@ -99,6 +110,7 @@ class ReviewerAgent(Agent):
                 "instructions": context_docs,
                 "current_section": current_section,
                 "messages": self.state["messages"],
+                "current_section_text": self.state["current_section_text"],
             }
         )
         self.state = {
@@ -117,15 +129,6 @@ class FeedbackAgent(Agent):
         llm = self.llm.bind_tools([ToRetrieverAgent, ToFinalReportAgent])
         feedback_runnable = feedback_prompt_template | llm
         response = feedback_runnable.invoke(self.state)
-
-        if response.tool_calls:
-            with open("final_report.txt", "a") as f:
-                f.write(self.state["messages"][-2].content + "\n\n\n")
-                f.flush()
-        else:
-            with open("final_report.txt", "a") as f:
-                f.write(response.content + "\n\n\n")
-                f.flush()
 
         self.state = {**self.state, "messages": response}
         if not response.tool_calls:
