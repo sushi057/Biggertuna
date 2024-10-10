@@ -1,202 +1,147 @@
-**Title: Tilt Sensor for Wrestling Headgear to Enhance Training by Promoting Head Positioning**
+**1. Title**
 
-**Field of Invention:**
-The present invention relates to a tilt sensor designed specifically for use in wrestling headgear. More particularly, it pertains to a sensor that assists wrestlers in maintaining proper head positioning during training sessions by providing real-time feedback through auditory, visual, and tactile means.
+Tilt Sensor for Wrestling Headgear with Adjustable Feedback Mechanisms
 
-**Background:**
-Wrestling is a physically demanding sport that requires athletes to maintain precise body positions to optimize performance and minimize the risk of injury. A critical element of wrestling technique is head positioning, which significantly affects balance, posture, and the effectiveness of various maneuvers. Despite its importance, many wrestlers struggle to keep their heads in the optimal position during practice, leading to suboptimal technique and potential injuries.
+**1.1 Field of Invention**
 
-Traditional training methods, such as coaching and video analysis, often lack the immediacy of feedback necessary for effective learning and correction of technique. Current technologies in sports training frequently fail to address the specific needs of wrestlers, particularly concerning head positioning. As a result, there exists a significant gap in the market for a solution that can provide real-time feedback to wrestlers regarding their head position during training.
+The present invention relates to the field of sports training technology, specifically to devices that assist athletes in enhancing their technique and performance. More particularly, it concerns a tilt sensor that can be attached to wrestling headgear, designed to aid wrestlers in maintaining optimal head positioning during both practice and competition.
 
-The invention addresses these deficiencies by integrating a tilt sensor into wrestling headgear. This sensor is designed to be easily attached to the straps of the headgear, ensuring a secure fit while allowing for adjustability. Users can set the zero and setpoint positions according to their individual preferences and training needs. The sensor provides immediate auditory, visual, and tactile feedback, such as vibrations, alerting wrestlers when their head position deviates from the desired angle. This real-time feedback mechanism facilitates effective training, enabling wrestlers to correct their head positioning promptly, thereby improving their overall technique and reducing the risk of injury.
+**1.2 Background**
+
+In wrestling, proper head positioning is essential for both performance and safety. Current training techniques predominantly rely on verbal instructions from coaches or visual feedback from mirrors, which may fail to provide real-time guidance to athletes. While wearable sensors and feedback devices have been developed for various sports, many do not cater specifically to the unique requirements of wrestling training.
+
+Existing training methodologies exhibit significant limitations, particularly in their inability to deliver immediate and accurate feedback regarding head position. Wrestlers often remain unaware of their head positioning during practice, which can lead to the formation of detrimental habits that adversely impact their performance in matches. Furthermore, many existing devices are not tailored to the dynamic movements and positions inherent in wrestling.
+
+There is a pressing need for an innovative solution that integrates a tilt sensor with adjustable settings and multi-modal feedback mechanisms, including auditory, visual, and tactile signals such as vibrations. The proposed invention aims to address these deficiencies by equipping wrestlers with real-time, actionable feedback on their head positioning, thereby improving their training efficacy and contributing to better performance in competitive scenarios.
 
 
-**Reference Numbers**
+**Reference Numbers for Tilt Sensor Attachment to Wrestling Headgear**
 
 Here is the list of reference numbers used throughout the application, along with detailed descriptions of the corresponding components:
 
-- **100**: Collar Cover  
-- **110**: Body of cover  
-- **111**: Added body area for overlap/tuck  
-- **112**: Open end top  
-- **113**: Open end bottom  
-- **114**: End stitch  
-- **116**: Open slot for leader exit  
-- **120**: Metal grommet  
-- **121**: Grommet aperture  
-- **150**: Traditional Prong/spiked collar  
-- **152**: Prong link  
-- **154**: Prong end  
-- **156**: Leader chain  
-- **158**: Leader loop (attach to leash)  
-- **159**: Break created by uncoupling links (to insert into cover)  
+**100:** Collar Cover  
+The cover that encases the tilt sensor, providing protection and stability.
 
-- **200**: Cover with zipper to open/close  
-- **210**: Body of cover  
-- **220**: Grommets  
-- **216**: Slot for leader exit  
-- **230**: Zipper  
-- **231**: Zipper side 1  
-- **232**: Zipper side 2  
-- **240**: Hook side velcro  
-- **242**: Loop side velcro  
+**110:** Body of Cover  
+The main structure of the collar cover that houses the tilt sensor.
 
-- **300**: Cover with small zipper for leader chain  
-- **310**: Body of cover  
-- **320**: Grommets  
-- **330**: Zipper/slot  
-- **340**: Hook side velcro  
-- **342**: Loop side velcro  
+**111:** Added Body Area for Overlap/Tuck  
+An extension of the body area that allows for secure overlap and tucking of the cover.
 
-- **300’**: Same but with printed pattern  
-- **312**: Printed pattern or design  
+**112:** Open End Top  
+The upper opening of the collar cover for easy access to the tilt sensor.
 
-- **400**: Cover with full length velcro to open/close  
-- **410**: Body of cover  
-- **420**: Grommets  
-- **416**: Slot for leader exit  
-- **440**: Hook side velcro for securing ends once in place  
-- **442**: Loop side velcro for securing ends once in place  
-- **446**: Loop side full length closure  
-- **446**: Hook side full length closure  
+**113:** Open End Bottom  
+The lower opening of the collar cover for secure attachment to the wrestling headgear.
 
-- **450**: Dog with collar/cover in place (No spikes can be seen)  
+**114:** End Stitch  
+Stitching at the ends of the collar cover to reinforce its structure.
 
+**116:** Open Slot for Leader Exit  
+A designated slot that allows the leader chain to exit the collar cover.
 
-**Figure Descriptions**
+**120:** Metal Grommet  
+A reinforced hole that facilitates the attachment of the collar cover to the headgear.
 
-The following figure descriptions correspond to various embodiments of the invention:
+**121:** Grommet Aperture  
+The opening of the grommet that allows for the passage of attachment mechanisms.
 
-- **FIG. 1**: Standard perspective view (Embodiment 1)  
-- **FIG. 2**: Bottom view (E1)  
-- **FIG. 3**: Top view (E1)  
-- **FIG. 4**: End view Right (E1)  
-- **FIG. 5**: End view Left (E1)  
-- **FIG. 6**: Side view Right (E1)  
-- **FIG. 7**: Side view Left (E1)  
-- **FIG. 8**: Sectional cut view - End view Right (E1)  
-- **FIG. 9**: Perspective view of common spike collar and collar soft goods cover (E1)  
-- **FIG. 10**: Top view with spiked collar uncoupled and inserted (E1)  
-- **FIG. 11**: Perspective view of inserted spike collar in soft good portion - Seeing protrusion  
+**150:** Traditional Prong/Spiked Collar  
+A type of collar that can be used in conjunction with the tilt sensor for added stability.
 
-- **FIG. 12**: Top view open position soft goods cover w/zipper (Embodiment 2)  
-- **FIG. 13**: Bottom view closed position soft goods cover w/zipper (E2)  
-- **FIG. 14**: Bottom view soft goods cover w/small zipper for chain exit (Embodiment 3)  
-- **FIG. 15**: Bottom view of FIG. 13 with printed custom pattern (E3)  
-- **FIG. 16**: Top view cover w/full length Hook & Loop closure (Embodiment 4)  
-- **FIG. 17**: Bottom view of FIG. 15 with Hook & Loop closure (E4)  
-- **FIG. 18**: Perspective view of FIG. 11 on a dog with exposed collar leader (E1)  
+**152:** Prong Link  
+The connecting link in the prong collar that allows for attachment to the headgear.
 
+**154:** Prong End  
+The end of the prong that secures the collar in place.
 
-**Brief Description of the Invention**
+**156:** Leader Chain  
+The chain that connects the collar to the wrestler's gear for stability.
 
-The invention pertains to a tilt sensor integrated into wrestling headgear, designed to enhance training by providing real-time feedback to wrestlers regarding their head positioning. The tilt sensor is attached to the straps of the headgear and features adjustable settings for zero and setpoint positions, allowing users to customize the device according to their individual training needs. 
+**158:** Leader Loop (Attach to Leash)  
+The loop on the leader chain that allows for attachment to a leash or other equipment.
 
-The sensor is equipped with auditory, visual, and tactile feedback mechanisms, such as vibrations, to alert wrestlers when their head position deviates from the desired angle. By promoting proper head positioning, the invention aims to improve wrestling techniques and reduce the risk of injury during training sessions. 
+**159:** Break Created by Uncoupling Links (to Insert into Cover)  
+A separation point in the links that allows for easy insertion into the collar cover.
 
-The following figures illustrate various embodiments of the invention, showcasing the design and functionality of the tilt sensor integrated into the wrestling headgear.
+**200:** Cover with Zipper to Open/Close  
+A version of the collar cover that features a zipper for easy access.
 
+**210:** Body of Cover  
+The main structure of the zippered collar cover.
 
-**Detailed Description of the Invention**
+**220:** Grommets  
+Reinforced holes for secure attachment to the headgear.
 
-The tilt sensor for wrestling headgear is designed to assist wrestlers in maintaining optimal head positioning during training sessions. The sensor is compact and lightweight, ensuring that it does not interfere with the athlete's performance or comfort. 
+**216:** Slot for Leader Exit  
+A designated slot for the leader chain to exit the zippered cover.
 
-**1. Structure and Components**  
-The tilt sensor comprises the following key components:
+**230:** Zipper  
+The mechanism that allows the cover to be opened and closed.
 
-- **Sensor Housing**: The main body of the sensor is constructed from durable materials to withstand the rigors of training. It is designed to be easily attached to the straps of standard wrestling headgear.
-  
-- **Tilt Detection Mechanism**: The sensor utilizes accelerometers or gyroscopes to detect the angle of the head relative to a predefined upright position. This allows for precise monitoring of head positioning during various wrestling maneuvers.
+**231:** Zipper Side 1  
+One side of the zipper mechanism.
 
-- **Adjustable Settings**: The sensor includes a user interface that allows athletes or coaches to set the zero position (the default upright position) and the setpoint position (the desired angle for training). This adjustability accommodates different wrestling styles and individual preferences.
+**232:** Zipper Side 2  
+The opposite side of the zipper mechanism.
 
-**2. Feedback Mechanisms**  
-To provide immediate feedback to the wrestler, the tilt sensor features multiple alert systems:
+**240:** Hook Side Velcro  
+The side of the Velcro that attaches to the collar cover for secure closure.
 
-- **Auditory Feedback**: The sensor emits audible alerts, such as beeps or tones, when the head position deviates from the setpoint. This allows the wrestler to receive feedback without needing to look at a display.
+**242:** Loop Side Velcro  
+The side of the Velcro that complements the hook side for secure attachment.
 
-- **Visual Feedback**: An LED indicator on the sensor provides visual cues, changing colors or blinking to signal deviations in head positioning.
+**300:** Cover with Small Zipper for Leader Chain  
+A compact version of the collar cover featuring a small zipper for the leader chain.
 
-- **Tactile Feedback**: The sensor is equipped with a vibration motor that activates when the head position is outside the acceptable range, providing a tactile alert that can be felt even in noisy environments.
+**310:** Body of Cover  
+The main structure of the small zippered collar cover.
 
-**3. Power Source**  
-The tilt sensor is powered by a rechargeable battery, ensuring long-lasting operation during training sessions. The device includes a charging port for convenient recharging.
+**320:** Grommets  
+Reinforced holes for secure attachment to the headgear.
 
-**4. Use Cases**  
-The tilt sensor is particularly beneficial for wrestlers during practice, where maintaining proper head positioning is critical for technique improvement and injury prevention. Coaches can also utilize the sensor to monitor athletes’ performance and provide targeted feedback.
+**330:** Zipper/Slot  
+The mechanism for opening and closing the small collar cover.
 
-In summary, the tilt sensor integrated into wrestling headgear offers a comprehensive solution for training by promoting proper head positioning through real-time feedback, thereby enhancing the overall performance and safety of wrestlers.
+**340:** Hook Side Velcro  
+The side of the Velcro that attaches to the small zippered collar cover.
 
+**342:** Loop Side Velcro  
+The side of the Velcro that complements the hook side for the small zippered collar cover.
 
-**Claims with Detailed Points**
+**300’:** Same but with Printed Pattern  
+A version of the small zippered collar cover that features a decorative printed pattern.
 
-1. A tilt sensor for wrestling headgear, comprising:
-   - a sensor housing configured to be attached to the straps of the wrestling headgear;
-   - a tilt detection mechanism for detecting the angle of the head relative to a predefined upright position;
-   - adjustable settings for establishing a zero position and a setpoint position;
-   - an auditory feedback system that emits alerts when the head position deviates from the setpoint;
-   - a visual feedback system including an LED indicator that provides visual cues for head positioning;
-   - a tactile feedback system that activates a vibration motor when the head position is outside an acceptable range.
+**312:** Printed Pattern or Design  
+The decorative design applied to the collar cover.
 
-2. The tilt sensor of claim 1, wherein the tilt detection mechanism utilizes accelerometers or gyroscopes to monitor head positioning, including:
-   - a three-axis accelerometer to measure acceleration along the X, Y, and Z axes for accurate head tilt detection;
-   - a gyroscope that provides angular velocity data to enhance the precision of head position tracking;
-   - a microcontroller that processes the data from the accelerometer and gyroscope to determine the head's orientation in real time.
+**400:** Cover with Full Length Velcro to Open/Close  
+A collar cover that utilizes Velcro along its entire length for opening and closing.
 
-3. The tilt sensor of claim 1, further comprising a rechargeable battery as the power source for the sensor, including:
-   - a lithium-ion battery that provides a long operational life, capable of lasting several training sessions on a single charge;
-   - a micro USB or wireless charging port for convenient recharging;
-   - a battery level indicator to alert users when the battery is low.
+**410:** Body of Cover  
+The main structure of the full-length Velcro collar cover.
 
-4. The tilt sensor of claim 1, wherein the auditory feedback system includes beeps or tones that vary in frequency based on the degree of deviation from the setpoint position, including:
-   - a higher frequency beep for minor deviations, which gradually increases in frequency as the deviation becomes more significant;
-   - customizable sound profiles that allow users to select preferred alert tones;
-   - an option to mute the auditory feedback while keeping visual and tactile alerts active.
+**420:** Grommets  
+Reinforced holes for secure attachment to the headgear.
 
-5. The tilt sensor of claim 1, wherein the adjustable settings allow customization for different wrestling styles and individual preferences, including:
-   - a user-friendly interface with buttons or a mobile app for easy adjustment of zero and setpoint positions;
-   - preset configurations for common wrestling techniques that can be selected based on training focus;
-   - the ability to save multiple user profiles for different athletes using the same sensor.
+**416:** Slot for Leader Exit  
+A designated slot for the leader chain to exit the full-length Velcro cover.
 
-6. The tilt sensor of claim 1, wherein the visual feedback system changes colors or blinks in response to deviations from the setpoint position, including:
-   - a green LED indicator for optimal head positioning, a yellow indicator for minor deviations, and a red indicator for significant deviations;
-   - a blinking pattern that increases in frequency with the severity of the deviation;
-   - an optional display screen that provides real-time data on the current head angle and deviation from the setpoint.
+**440:** Hook Side Velcro for Securing Ends Once in Place  
+The hook side Velcro that secures the ends of the full-length collar cover.
 
+**442:** Loop Side Velcro for Securing Ends Once in Place  
+The loop side Velcro that complements the hook side for secure closure.
 
-**Glossary of Terms**
+**446:** Loop Side Full Length Closure  
+The loop side Velcro that provides full-length closure for the collar cover.
 
-1. **Tilt Sensor**: A device that detects the angle of an object relative to a reference position, typically the upright position, and provides feedback based on this angle.
+**446:** Hook Side Full Length Closure  
+The hook side Velcro that provides full-length closure for the collar cover.
 
-2. **Headgear**: A type of protective equipment worn by wrestlers, designed to protect the head and ears during matches and training.
+**450:** Dog with Collar/Cover in Place (No Spikes Can Be Seen)  
+An illustration showing a dog wearing the collar cover, demonstrating its design and functionality.
 
-3. **Zero Position**: The default reference angle set for the tilt sensor, representing the optimal head position for training.
-
-4. **Setpoint Position**: The desired angle that the user aims to maintain during training, which can be adjusted based on individual preferences.
-
-5. **Auditory Feedback**: Sound-based alerts provided by the sensor to inform the user of deviations from the setpoint position.
-
-6. **Visual Feedback**: Light-based indicators, such as LEDs, that visually signal the user's head position relative to the setpoint.
-
-7. **Tactile Feedback**: Physical sensations, such as vibrations, that alert the user to changes in head position without the need for visual or auditory cues.
-
-8. **Accelerometer**: A sensor that measures the rate of change of velocity and can determine the angle of tilt based on gravitational forces.
-
-9. **Gyroscope**: A device that measures the rate of rotation around an axis, providing data on angular velocity to enhance the accuracy of head position tracking.
-
-10. **Microcontroller**: A compact integrated circuit designed to govern a specific operation in an embedded system, processing data from sensors and controlling feedback mechanisms.
-
-11. **Rechargeable Battery**: A type of battery that can be recharged and reused multiple times, providing power to the tilt sensor.
-
-12. **User Interface**: The means by which the user interacts with the tilt sensor, which may include buttons, touch screens, or mobile applications.
-
-13. **Customizable Sound Profiles**: Options that allow users to select different auditory alerts based on personal preferences.
-
-14. **User Profiles**: Individual settings saved for different users, allowing for personalized configurations of the tilt sensor's settings and feedback mechanisms.
-
-
-**Abstract**
-
-The present invention relates to a tilt sensor integrated into wrestling headgear, designed to assist athletes in maintaining optimal head positioning during training. The sensor is affixed to the straps of the headgear and features adjustable settings for zero and setpoint positions, allowing customization to suit individual training needs. Equipped with a tilt detection mechanism utilizing accelerometers and gyroscopes, the device provides real-time feedback through auditory, visual, and tactile alerts when deviations from the desired head position occur. This innovative solution enhances training effectiveness by promoting proper head positioning, thereby improving wrestling techniques and reducing the risk of injury. The tilt sensor's user-friendly interface, rechargeable battery, and customizable feedback options make it a versatile tool for wrestlers and coaches alike.
+This structured list provides clarity and consistency in referencing the components of the tilt sensor system, facilitating easy navigation throughout the patent application.
 
 

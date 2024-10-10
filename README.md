@@ -39,7 +39,15 @@ This project is designed to manage and analyze various components and their atta
     ```sh
     cd Biggertuna
     ```
-3. Install the dependencies:
+3. Create virtual environment
+    ```sh
+    python -m venv .venv
+    ```
+4. Activate virtual environment
+    ```sh
+    source .venv/bin/activate
+    ```
+5. Install the dependencies:
     ```sh
     pip install -r requirements.txt
     ```
@@ -49,3 +57,4 @@ This project is designed to manage and analyze various components and their atta
 Run the main script to start the application:
 ```sh
 python main.py
+```
