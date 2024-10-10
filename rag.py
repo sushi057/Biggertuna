@@ -38,9 +38,7 @@ rag_chain = (
 # print(rag_chain.invoke("What is the document about?"))
 
 # Rules embedding
-rules_file_path = (
-    "./docs/You are reviewing a draft Provisional Patent Application Prompt.pdf"
-)
+rules_file_path = "./docs/Patent writing instructions.pdf"
 loader = PyPDFLoader(file_path=rules_file_path)
 docs = loader.lazy_load()
 
