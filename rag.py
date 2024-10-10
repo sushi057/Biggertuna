@@ -1,3 +1,4 @@
+import os
 from langchain import hub
 from langchain_chroma import Chroma
 from langchain_core.runnables import RunnablePassthrough
@@ -16,7 +17,7 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=10
 splits = text_splitter.split_documents(docs)
 vectorstore = Chroma.from_documents(
     documents=splits,
-    embedding=OpenAIEmbeddings(),
+    embedding=OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY")),
     # persist_directory="./data/final_deliverable",
 )
 
