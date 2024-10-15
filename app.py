@@ -1,6 +1,6 @@
 import uuid
 import chainlit as cl
-from graph import create_graph
+from graph.graph import create_graph
 
 thread_id = str(uuid.uuid4())
 
@@ -64,8 +64,9 @@ async def on_chat_start():
         except Exception as e:
             cl.Message(content="An error occurred: " + str(e)).send()
     await cl.Message(
-        content=messages[-1] + "\nReview the above message and provide feedback."
+        content=messages[-1] + "\n\n\nReview the above message and provide feedback."
     ).send()
+
 
 
 @cl.on_message

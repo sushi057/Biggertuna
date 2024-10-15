@@ -6,3 +6,4 @@ __pycache__/
 data/
 .chainlit/translations/
 notes.md
+graph/final_report.txt
