@@ -1,5 +1,5 @@
 import uuid
-from graph.graph import create_graph
+from graph import create_graph
 
 thread_id = str(uuid.uuid4())
 

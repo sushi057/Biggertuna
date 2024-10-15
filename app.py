@@ -1,6 +1,6 @@
 import uuid
 import chainlit as cl
-from graph.graph import create_graph
+from graph import create_graph
 
 thread_id = str(uuid.uuid4())
 
@@ -37,8 +37,6 @@ report_sections = [
 #             icon="📰",
 #         ),
 #     ]
-
-
 
 
 @cl.on_chat_start
