@@ -1,0 +1,9 @@
+services:
+  app:
+    restart: on-failure
+    image: biggertuna-ai-assistant
+    env_file:
+      - .env
+    build: .
+    ports:
+      - "8000:8000"
