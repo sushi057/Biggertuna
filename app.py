@@ -1,6 +1,6 @@
 import uuid
 import chainlit as cl
-from graph import create_graph
+from graph.graph import create_graph
 
 thread_id = str(uuid.uuid4())
 
@@ -23,28 +23,57 @@ report_sections = [
 # user_prompt = "review the attachments and write a PPA for the idea of a tilt sensor that attaches to wrestling headgear to help train wrestlers to keep their head up.the sensor will attach to the straps of the headgear, have adjustability to set the zero and setpoint positions, and have some kind of auditory and visual and tactile feedback, like vibration."
 
 
+# @cl.set_starters
+# async def set_starters():
+#     return [
+#         cl.Starter(
+#             label="Generate a PPA for a tilt sensor that attaches to wrestling headgear",
+#             message="Write a PPA for the idea of a tilt sensor that attaches to wrestling headgear to help train wrestlers to keep their head up.the sensor will attach to the straps of the headgear, have adjustability to set the zero and setpoint positions, and have some kind of auditory and visual and tactile feedback, like vibration.",
+#             icon="📝",
+#         ),
+#         cl.Starter(
+#             label="Write a blog post about the future of AI in the legal industry",
+#             message="Write a blog post about the future of AI in the legal industry.",
+#             icon="📰",
+#         ),
+#     ]
+
+
+
+
 @cl.on_chat_start
 async def on_chat_start():
     initial_prompt = await cl.AskUserMessage(
-        "Enter initial prompt: ", timeout=30
+        "Enter your prompt for your Provisional Patent Application generation: ",
+        timeout=3000,
     ).send()
+
+    messages = []
     for event in graph.stream(
         {
-            "messages": {"user": initial_prompt["content"]},
+            "messages": ("user", initial_prompt["output"]),
             "current_section": report_sections,
-        }
+        },
+        config,
+        stream_mode="values",
     ):
         try:
-            await cl.Message(content=event["messages"][-1].content).send()
+            messages.append(event["messages"][-1].content)
+            # await cl.Message(content=event["messages"][-1].content).send()
+            # await cl.Message(
+            #     content="Review the above message and provide feedback."
+            # ).send()
         except Exception as e:
             cl.Message(content="An error occurred: " + str(e)).send()
+    await cl.Message(
+        content=messages[-1] + "\nReview the above message and provide feedback."
+    ).send()
 
 
 @cl.on_message
 async def on_message(message: cl.Message):
-    # user_input = message.
     graph.update_state(
-        config, {"messages": [("user", message)]}, as_node="feedback_agent"
+        config, {"messages": [("user", message.content)]}, as_node="feedback_agent"
     )
 
     messages = []
