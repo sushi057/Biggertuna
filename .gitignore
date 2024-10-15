@@ -4,3 +4,5 @@ docs/
 .vscode/
 __pycache__/
 data/
+.chainlit/
+notes.md
